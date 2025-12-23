@@ -42,6 +42,18 @@
 
 > This project is designed to be lightweight and easy to deploy
 
+---
+
+<div align="center">
+
+### 🎯 Quick Entry for Enterprise WeChat Users
+
+**[📱 Enterprise WeChat 30-Second Quick Start Guide](docs/WEWORK-QUICKSTART.md)** ← Click for dedicated tutorial
+
+</div>
+
+---
+
 <br>
 
 <details>

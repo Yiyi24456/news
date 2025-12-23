@@ -56,7 +56,51 @@
 
 ---
 
-### 📋 进阶配置（可选）
+### 💬 推送到个人微信（无需企业微信 App）
+
+> 💡 **想直接在个人微信接收通知？** 无需安装企业微信 App！
+
+通过企业微信的应用消息功能，可以将通知直接推送到个人微信。
+
+#### 操作步骤：
+
+**第一步：添加额外的 GitHub Secret**
+
+在你的仓库中，按照前面的方式添加第二个 Secret：
+
+1. 进入 **`Settings`** → **`Secrets and variables`** → **`Actions`** → **`New repository secret`**
+2. 添加配置：
+   - **Name（名称）**：`WEWORK_MSG_TYPE`
+   - **Secret（值）**：`text`
+3. 保存
+
+**第二步：在企业微信中关联个人微信**
+
+1. 手机打开企业微信 App
+2. 点击 **"我"** → **"设置"**
+3. 找到 **"关联微信"** 或 **"微信插件"**
+4. 按提示完成关联
+5. 开启 **"接收消息"** 功能
+
+**第三步：配置完成**
+
+现在你会在个人微信的"企业微信"插件中收到通知，无需安装企业微信 App。
+
+> ⚠️ **注意事项：**
+> - 个人微信推送为**纯文本格式**（无 Markdown 样式）
+> - 首次可能需要在企业微信中接收一条消息后才会同步到个人微信
+> - 确保在个人微信的企业微信插件中已允许接收该企业的消息
+
+#### 效果对比：
+
+| 推送方式 | 消息格式 | 需要 App | 接收位置 |
+|---------|---------|---------|---------|
+| 企业微信群机器人 | Markdown（富文本） | ✅ 需要企业微信 | 企业微信群聊 |
+| 个人微信推送 | 纯文本 | ❌ 不需要 | 个人微信→企业微信插件 |
+
+---
+
+### 📋 更多进阶配置（可选）
 
 #### 1. 修改推送频率
 
@@ -100,19 +144,6 @@ report:
 - **`daily`**（当日汇总）：每次推送当天所有匹配新闻
 - **`current`**（当前榜单）：推送当前榜单匹配新闻（默认）
 - **`incremental`**（增量模式）：只推送新增内容，零重复
-
-#### 4. 推送到个人微信
-
-如需推送到个人微信（无需安装企业微信 App）：
-
-1. 添加额外的 GitHub Secret：
-   - **Name**：`WEWORK_MSG_TYPE`
-   - **Secret**：`text`
-
-2. 在企业微信中关联个人微信：
-   - 手机打开企业微信 → 我 → 设置 → 关联微信 → 接收消息
-
-> ⚠️ **注意**：个人微信推送为纯文本格式（无 Markdown 样式）
 
 ---
 
@@ -182,6 +213,24 @@ https://qyapi.weixin.qq.com/xxx/key1;https://qyapi.weixin.qq.com/xxx/key2
 
 </details>
 
+<details>
+<summary><b>Q5: 个人微信推送和企业微信群推送有什么区别？</b></summary>
+
+**主要区别：**
+
+| 特性 | 企业微信群机器人 | 个人微信推送 |
+|------|----------------|------------|
+| 需要安装 App | ✅ 需要企业微信 | ❌ 不需要（在个人微信查看） |
+| 消息格式 | Markdown 富文本 | 纯文本 |
+| 接收位置 | 企业微信群聊 | 个人微信的企业微信插件 |
+| 配置复杂度 | 简单（1个Secret） | 中等（2个Secret+关联） |
+
+**推荐选择：**
+- 如果有企业微信 App → 使用群机器人（消息更美观）
+- 不想装企业微信 App → 使用个人微信推送
+
+</details>
+
 ---
 
 ### 📞 获取帮助
@@ -240,7 +289,51 @@ After configuration, the project will automatically run every hour and push tren
 
 ---
 
-### 📋 Advanced Configuration (Optional)
+### 💬 Push to Personal WeChat (No WeWork App Required)
+
+> 💡 **Want to receive notifications directly on personal WeChat?** No need to install the WeWork App!
+
+Using WeWork's application message feature, you can push notifications directly to personal WeChat.
+
+#### Steps:
+
+**Step 1: Add Additional GitHub Secret**
+
+In your repository, add a second Secret following the same process:
+
+1. Go to **`Settings`** → **`Secrets and variables`** → **`Actions`** → **`New repository secret`**
+2. Add configuration:
+   - **Name**: `WEWORK_MSG_TYPE`
+   - **Secret**: `text`
+3. Save
+
+**Step 2: Link Personal WeChat in WeWork**
+
+1. Open WeWork App on mobile
+2. Tap **"Me"** → **"Settings"**
+3. Find **"Link WeChat"** or **"WeChat Plugin"**
+4. Follow prompts to complete linking
+5. Enable **"Receive Messages"** feature
+
+**Step 3: Configuration Complete**
+
+Now you'll receive notifications in personal WeChat's "WeWork" plugin, without needing the WeWork App installed.
+
+> ⚠️ **Notes:**
+> - Personal WeChat push uses **plain text format** (no Markdown styling)
+> - You may need to receive one message in WeWork first before it syncs to personal WeChat
+> - Make sure the WeWork plugin in personal WeChat allows receiving messages from your organization
+
+#### Comparison:
+
+| Push Method | Message Format | Requires App | Receive Location |
+|------------|----------------|--------------|------------------|
+| WeWork Group Bot | Markdown (rich text) | ✅ Requires WeWork | WeWork group chat |
+| Personal WeChat | Plain text | ❌ Not required | Personal WeChat → WeWork plugin |
+
+---
+
+### 📋 More Advanced Configuration (Optional)
 
 #### 1. Change Push Frequency
 
@@ -284,19 +377,6 @@ report:
 - **`daily`** (Daily Summary): Push all matched news of the day
 - **`current`** (Current Rankings): Push current ranking matches (default)
 - **`incremental`** (Incremental): Push only new content, zero duplicates
-
-#### 4. Push to Personal WeChat
-
-To push to personal WeChat (no need to install WeWork App):
-
-1. Add an additional GitHub Secret:
-   - **Name**: `WEWORK_MSG_TYPE`
-   - **Secret**: `text`
-
-2. Link personal WeChat in WeWork:
-   - Open WeWork on mobile → Me → Settings → Link WeChat → Receive Messages
-
-> ⚠️ **Note**: Personal WeChat push is in plain text format (no Markdown styling)
 
 ---
 
@@ -363,6 +443,24 @@ https://qyapi.weixin.qq.com/xxx/key1;https://qyapi.weixin.qq.com/xxx/key2
 ```
 
 Maximum 3 groups supported (adjustable via `max_accounts_per_channel` in `config/config.yaml`)
+
+</details>
+
+<details>
+<summary><b>Q5: What's the difference between Personal WeChat push and WeWork group push?</b></summary>
+
+**Main Differences:**
+
+| Feature | WeWork Group Bot | Personal WeChat Push |
+|---------|------------------|---------------------|
+| Requires App | ✅ Needs WeWork | ❌ Not required (view in personal WeChat) |
+| Message Format | Markdown rich text | Plain text |
+| Receive Location | WeWork group chat | Personal WeChat's WeWork plugin |
+| Configuration | Simple (1 Secret) | Medium (2 Secrets + linking) |
+
+**Recommendation:**
+- Have WeWork App → Use group bot (better formatting)
+- Don't want WeWork App → Use personal WeChat push
 
 </details>
 

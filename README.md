@@ -42,6 +42,18 @@
 
 > 本项目以轻量，易部署为目标
 
+---
+
+<div align="center">
+
+### 🎯 企业微信用户快速入口
+
+**[📱 企业微信 30 秒快速部署指南](docs/WEWORK-QUICKSTART.md)** ← 点击查看专属教程
+
+</div>
+
+---
+
 <br>
 
 <details>
